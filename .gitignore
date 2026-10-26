@@ -26,6 +26,9 @@ settings.local.json
 
 *.lnk
 
+# Local Steam AppID file used when launching the game outside a Steam install
+/steam_appid.txt
+
 # Basic Memory knowledge base (memory.db, config, logs stay local)
 memory/*.db*
 memory/config.json
