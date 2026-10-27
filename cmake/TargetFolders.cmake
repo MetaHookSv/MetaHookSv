@@ -44,9 +44,9 @@ endfunction()
 # Give a component's targets its IDE filter. An existing FOLDER wins: the
 # component already knows where its vendored libraries and the shared
 # FormatValidation targets belong. The one exception is the group root itself:
-# BulletPhysics, BulletPhysics_AVX2 and Renderer_AVX2 set FOLDER
-# "MetaHookPlugins" in their own CMakeLists, and in the aggregate that must
-# become "MetaHookPlugins/<component>" instead of staying flat at the root.
+# BulletPhysics sets FOLDER "MetaHookPlugins" in its own CMakeLists, and in the
+# aggregate that must become "MetaHookPlugins/<component>" instead of staying
+# flat at the root.
 function(metahooksv_assign_component_folders _targets _group_folder _component_folder)
     foreach(_target IN LISTS _targets)
         get_target_property(_existing_folder "${_target}" FOLDER)

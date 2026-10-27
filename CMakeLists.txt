@@ -101,11 +101,6 @@ option(METAHOOKSV_BUILD_PLUGINS "Build the Plugins/* components" ON)
 option(METAHOOKSV_BUILD_PLUGINLIBS "Build the PluginLibs/* components" ON)
 option(METAHOOKSV_BUILD_TOOLSRC "Build the CMake-based toolsrc/* components" ON)
 
-# Also build the BulletPhysics/Renderer AVX2 variants (installed as *_AVX2.dll) for
-# releases, so an existing AVX2-capable installation does not keep loading a stale
-# copy probed ahead of the freshly installed baseline DLL.
-option(METAHOOKSV_BUILD_AVX2 "Also build the BulletPhysics/Renderer AVX2 plugin variants" OFF)
-
 include(cmake/LaunchGame.cmake)
 
 # The compiler-free format entry point uses the same component registry.
@@ -223,17 +218,6 @@ function(metahooksv_add_component _component_path _component_deps
             set(${_dep} "${_dep_path}")
         endforeach()
     endif()
-    # Forward the AVX2 variant switches as normal variables of this per-component
-    # scope: they reach that component's directory without touching the cache, so
-    # only the intended components build the extra targets.
-    if(METAHOOKSV_BUILD_AVX2)
-        if(_component_path STREQUAL "Plugins/BulletPhysics")
-            set(BULLETPHYSICS_BUILD_AVX2 ON)
-        elseif(_component_path STREQUAL "Plugins/Renderer")
-            set(RENDERER_BUILD_AVX2 ON)
-        endif()
-    endif()
-
     set(_component_source_dir "${CMAKE_CURRENT_SOURCE_DIR}/${_component_path}")
     add_subdirectory("${_component_source_dir}"
         "${CMAKE_CURRENT_BINARY_DIR}/${_component_path}")
@@ -323,8 +307,8 @@ foreach(_def IN LISTS METAHOOKSV_COMPONENT_DEFS)
     get_filename_component(_name "${_path}" NAME)
     message(STATUS "Enabling ${_path} (target '${_name}')")
     # Each group maps to one IDE filter. Plugins and PluginLibs add a
-    # per-component subfilter so their targets, tests and *_AVX2 variants are
-    # grouped by component instead of piling up at the group root.
+    # per-component subfilter so their targets and tests are grouped by
+    # component instead of piling up at the group root.
     if(_group STREQUAL "metahook")
         set(_component_group_folder "MetaHookCore")
         set(_component_folder "MetaHookCore")
