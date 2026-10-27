@@ -47,15 +47,13 @@ BetterSpray also consumes the shared ScopeExit, FreeImage, SteamSDK and
 MetaHook Chocobo1Hash sources, plus VGUI2Extension, UtilThreadTask and
 UtilHTTPClient_libcurl public interface headers.
 
-Two more dependencies are shared without a submodule:
+SDL3/SDL2 are shared without a root submodule: `Renderer` and `VGUI2Extension`
+consume only SDL's public headers; the aggregator points
+`SDL2_INCLUDE_DIRS`/`SDL3_INCLUDE_DIRS` at MetaHook's SDL submodules
+(`MetaHook/thirdparty/{sdl2-compat,SDL3}/include`), which exist at configure time.
 
-- **VC-LTL**: the aggregator downloads and verifies VC-LTL 5.3.1 once into
-  `thirdparty/VC-LTL-5.3.1` and sets `VC_LTL_Root` for every component, so no
-  component downloads its own copy. `thirdparty/VC-LTL-*` is gitignored.
-- **SDL3/SDL2**: `Renderer` and `VGUI2Extension` consume only SDL's public
-  headers; the aggregator points `SDL2_INCLUDE_DIRS`/`SDL3_INCLUDE_DIRS` at
-  MetaHook's SDL submodules (`MetaHook/thirdparty/{sdl2-compat-fork,SDL3_fork}/include`),
-  which exist at configure time.
+Every component uses the plain static MSVC CRT (`/MT`, `/MTd`) without a CRT
+replacement package.
 
 Component rule: when a component needs a shared dependency, add it to the
 repository `thirdparty/` as a submodule (if not already present), accept
@@ -91,7 +89,7 @@ in explicit blocks: formatting unbraced assembly can absorb following C++ statem
 The root `CMakeLists.txt` adds every enabled component to **one CMake tree**
 with `add_subdirectory()` (binary dirs mirror the source paths, e.g.
 `build/Plugins/Renderer`), so one configure yields one solution with the real
-component targets. It resolves the shared VC-LTL and injects each component's
+component targets. It injects each component's
 `<NAME>_SOURCE_PATH` set (see `cmake/Components.cmake`) as normal variables of
 that component's scope, which shadow the component's own cache defaults.
 

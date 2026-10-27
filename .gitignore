@@ -4,12 +4,6 @@
 # CMake aggregator build tree
 /build/
 
-# Shared downloaded dependency cache (VC-LTL) under thirdparty/
-/thirdparty/VC-LTL-5.3.1/
-/thirdparty/VC-LTL-*.7z
-/thirdparty/VC-LTL-*.7z.download
-/thirdparty/VC-LTL.lock
-
 toolsrc/MetahookInstaller/MetahookInstallerAvalonia/bin
 toolsrc/MetahookInstaller/MetahookInstallerAvalonia/obj
 toolsrc/MetahookInstaller/MetahookInstallerAvalonia.Desktop/bin
