@@ -35,8 +35,8 @@ Shared `thirdparty/` submodules and the variables they feed:
 | `thirdparty/…` | Variable | Consumers |
 | --- | --- | --- |
 | `ScopeExit` | `SCOPEEXIT_SOURCE_PATH` | BulletPhysics, Renderer, SCModelDownloader, UtilAssetsIntegrity, UtilHTTPClient_* |
-| `glew_fork` | `GLEW_SOURCE_PATH` | BulletPhysics, Renderer, SteamScreenshots |
-| `FreeImage_clone` | `FREEIMAGE_SOURCE_PATH` | Renderer, UtilAssetsIntegrity |
+| `glew` | `GLEW_SOURCE_PATH` | BulletPhysics, Renderer, SteamScreenshots |
+| `FreeImage` | `FREEIMAGE_SOURCE_PATH` | Renderer, UtilAssetsIntegrity |
 | `tinyobjloader` | `TINYOBJLOADER_SOURCE_PATH` | BulletPhysics, Renderer |
 | `libxml2` | `LIBXML2_SOURCE_PATH` | BetterSpray |
 | `Chocobo1Hash` | `CHOCOBO1HASH_SOURCE_PATH` | BulletPhysics (shares `MetaHook/thirdparty/Chocobo1Hash`) |
