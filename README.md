@@ -64,7 +64,7 @@ A: try `r_lightmap 1`.
 
 ## One Click Installation (GUI Installer)
 
-1. Download the release and extract the complete archive.
+1. Download the [MetaHookSv-windows-x86.7z](https://github.com/MetaHookSv/MetaHookSv/releases) and extract the complete archive.
 2. Keep `MetahookInstaller.exe` and `install/output/` together. Run the installer, select the game, then click **Install**.
 3. Launch Sven Co-op from Steam or the generated shortcut. Other games use the generated `MetaHook for [GameName].lnk`.
 
@@ -80,7 +80,7 @@ See [MetahookInstaller](https://github.com/MetaHookSv/MetahookInstaller) for all
 
 ## Manual Installation
 
-1. Download the release and extract the complete archive.
+1. Download the [MetaHookSv-windows-x86.7z](https://github.com/MetaHookSv/MetaHookSv/releases) and extract the complete archive.
 
 2. For Sven Co-op, merge `svencoop/`, its sibling resource directories and `platform/` into the game root. For other mods, merge the common `svencoop/` resources into the selected mod directory and add its matching resource directories.
 
