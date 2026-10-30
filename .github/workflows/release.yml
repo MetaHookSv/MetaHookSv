@@ -30,7 +30,7 @@ jobs:
       RELEASE_NOTES_PROVIDER: ${{ vars.RELEASE_NOTES_PROVIDER || 'codex' }}
       RELEASE_NOTES_MODEL: ${{ vars.RELEASE_NOTES_MODEL }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
           persist-credentials: false
@@ -40,7 +40,7 @@ jobs:
         with:
           python-version: '3.12'
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: '22'
 
@@ -65,7 +65,7 @@ jobs:
         run: python scripts/release.py notes --input "$RUNNER_TEMP/release-context.txt" --output "$RUNNER_TEMP/release-notes.md"
 
       - name: Upload release notes
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: release-notes
           path: ${{ runner.temp }}/release-notes.md
@@ -80,7 +80,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           persist-credentials: false
 
@@ -88,17 +88,17 @@ jobs:
         with:
           python-version: '3.12'
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: release-windows
           path: release-assets/release-windows
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: release-bsp-localization-tools
           path: release-assets/release-bsp-localization-tools
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: release-notes
           path: release-notes
