@@ -109,3 +109,7 @@
 	path = Plugins/CDAudioFix
 	url = https://github.com/MetaHookSv/CDAudioFix.git
 	branch = main
+[submodule "Plugins/SvenSoundcacheControl"]
+	path = Plugins/SvenSoundcacheControl
+	url = https://github.com/MetaHookSv/SvenSoundcacheControl
+	branch = main
