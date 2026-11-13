@@ -88,6 +88,12 @@ A. 请设置 `r_lightmap 1`
 
 4. 在 Mod 的 `metahook/configs/` 下，将 Sven Co-op 的 `plugins_svencoop.lst` 或其他游戏的 `plugins_goldsrc.lst` 复制为 `plugins.lst`。已有用户列表时保留原文件。Sven Co-op 默认启用 BetterSpray。
 
+SvenSoundcacheControl 随包提供，需在 `plugins.lst` 中加入
+`SvenSoundcacheControl.dll` 才会启用。`cl_soundcache_alwaysflush 1` 在每次入服时
+刷新声音列表，包括同图重连；设为 `0` 恢复原版行为。请保留配套的
+`gamedata/svensoundcachecontrol` 目录。详见
+[SvenSoundcacheControl](https://github.com/MetaHookSv/SvenSoundcacheControl)。
+
 普通引擎导入 SDL2 时，应同时安装 `install/output/SDL2.dll` 和 `SDL3.dll`，以支持输入法候选词。GUI 安装器会自动判断此条件。
 
 ## 构建需求

@@ -88,6 +88,12 @@ Copy the `MetaHook.exe` / `MetaHook_blob.dll` (depending on your engine type) in
 
 In the mod's `metahook/configs/`, copy `plugins_svencoop.lst` for Sven Co-op or `plugins_goldsrc.lst` for other games to `plugins.lst`, unless a user list already exists. BetterSpray is enabled by default for Sven Co-op.
 
+SvenSoundcacheControl is included as an optional Sven Co-op plugin. Add
+`SvenSoundcacheControl.dll` to `plugins.lst` to refresh sound lists on every join,
+including same-map reconnects (`cl_soundcache_alwaysflush 1`, or `0` for original
+behavior). Keep its `gamedata/svensoundcachecontrol` directory with the DLL.
+See [SvenSoundcacheControl](https://github.com/MetaHookSv/SvenSoundcacheControl).
+
 For a non-blob engine that imports SDL2, copy both `SDL2.dll` and `SDL3.dll` into the game toot, to enable IME candidate support. The GUI installer checks this condition automatically.
 
 ## Build Requirements
